@@ -1,0 +1,50 @@
+export const ironSeriesProducts = [
+    {
+        id: 1,
+        name: "Gymline JGE6738 Pec Fly/Rear Delt",
+        image: "https://cdn.shopify.com/s/files/1/0634/4359/9509/files/E6738pecfly.png?v=1735628870",
+        category: "Iron Series",
+        description: "Net Weight: 229 KG, Weight stack: 100 KG, Product Dimension: 1250*1300*2022 MM",
+        featured: false,
+    },
+    {
+        id: 2,
+        name: "Gymline JGE6759 Low Row/Lat Pull Down",
+        image: "https://cdn.shopify.com/s/files/1/0634/4359/9509/files/E6759latpulldown_lowrow.png?v=1735628918",
+        category: "Iron Series",
+        description: "Net Weight: 252 KG, Weight stack: 100 KG, Product Dimension: 2086*1220*2200 MM",
+        featured: false,
+    },
+    {
+        id: 3,
+        name: "Gymline JGE6761 Adductor/Abductor",
+        image: "https://cdn.shopify.com/s/files/1/0634/4359/9509/files/E6761abductor_adductor.png?v=1735628973",
+        category: "Iron Series",
+        description: "Net Weight: 204 KG, Weight stack: 100 KG, Product Dimension: 1694*625*1580 MM",
+        featured: false,
+    },
+    {
+        id: 4,
+        name: "Gymline JGE6763 Multi Press",
+        image: "https://cdn.shopify.com/s/files/1/0634/4359/9509/files/E6763multipress.png?v=1735628935",
+        category: "Iron Series",
+        description: "Net Weight: 279 KG, Weight stack: 100 KG, Product Dimension: 1927*1347*1580 MM",
+        featured: false,
+    },
+    {
+        id: 5,
+        name: "Gymline JGE6760 Bicep/Tricep",
+        image: "https://cdn.shopify.com/s/files/1/0634/4359/9509/files/E6760bicep_tricep.png?v=1735628893",
+        category: "Iron Series",
+        description: "Net Weight: 214 KG, Weight stack: 100 KG, Product Dimension: 1250*1072*1580 MM",
+        featured: false,
+    },
+    {
+        id: 6,
+        name: "Gymline JGE6764 Leg Extension/Prone Leg Curl",
+        image: "https://cdn.shopify.com/s/files/1/0634/4359/9509/files/E6764legextension_pronelegcurl.png?v=1735628957",
+        category: "Iron Series",
+        description: "Net Weight: 234 KG, Weight stack: 100 KG, Product Dimension: 1710*1008*1580 MM",
+        featured: false,
+    }
+];
