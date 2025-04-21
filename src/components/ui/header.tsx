@@ -36,7 +36,8 @@ function Header1() {
         {
           title: "Srength Plate Loaded",
           href: "/strength-plate-loaded",
-        },
+        }
+        ,
         {
           title: "Benches and racks",
           href: "/benches-and-racks",
@@ -89,13 +90,11 @@ function Header1() {
               {navigationItems.map((item) => (
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
-                    <>
-                      <NavigationMenuLink>
-                        <Link href={item.href}>
-                          <Button variant="ghost">{item.title}</Button>
-                        </Link>
-                      </NavigationMenuLink>
-                    </>
+                      <Link href={item.href}>
+                        <Button variant="ghost">
+                          {item.title}
+                        </Button>
+                      </Link>
                   ) : (
                     <>
                       <NavigationMenuTrigger className="font-medium text-sm">
@@ -116,14 +115,14 @@ function Header1() {
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
                             {item.items?.map((subItem) => (
-                              <NavigationMenuLink
+                              <Link
                                 href={subItem.href}
                                 key={subItem.title}
                                 className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
                               >
                                 <span>{subItem.title}</span>
                                 <MoveRight className="w-4 h-4 text-muted-foreground" />
-                              </NavigationMenuLink>
+                              </Link>
                             ))}
                           </div>
                         </div>
@@ -138,13 +137,13 @@ function Header1() {
         <div className="flex lg:justify-center">
           {/* logo image */}
           <Link href={"/"}>
-          <Image
-            src={"/logo.png"}
-            width={"190"}
-            height={"50"}
-            alt="gymline logo image"
-            className="cursor-pointer"
-          />
+            <Image
+              src={"/logo.png"}
+              width={"190"}
+              height={"50"}
+              alt="gymline logo image"
+              className="cursor-pointer"
+            />
           </Link>
         </div>
         <div className="flex justify-end w-full gap-4">
@@ -158,12 +157,16 @@ function Header1() {
                     <Button>Get started</Button> */}
         </div>
         <div className="flex w-12 shrink lg:hidden items-end justify-end">
-          <Button className="cursor-pointer" variant="ghost" onClick={() => setOpen(!isOpen)}>
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 cursor-pointer" />}
+          <Button className="cursor-pointer" variant="ghost" onClick={() => setOpen(!isOpen)} >
+            {isOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5 cursor-pointer" />
+            )}
           </Button>
           {isOpen && (
             <div className="absolute top-20 border-t flex p-2 flex-col w-full right-0 bg-background shadow-lg py-4 container gap-8">
-              {navigationItems.map((item) => (
+              {navigationItems.map((item, index) => (
                 <div key={item.title}>
                   <div className="flex flex-col gap-2">
                     {item.href ? (
@@ -172,17 +175,21 @@ function Header1() {
                         className="flex justify-between items-center"
                       >
                         <span className="text-lg">{item.title}</span>
-                        <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                       </Link>
                     ) : (
                       <p className="text-lg">{item.title}</p>
                     )}
                     {item.items &&
-                      item.items.map((subItem) => (
+                      item.items.map((subItem, index) => (
                         <Link
                           key={subItem.title}
                           href={subItem.href}
                           className="flex justify-between items-center"
+                          onClick={
+                            () => {
+                              setOpen(!isOpen)
+                            }
+                          }
                         >
                           <span className="text-muted-foreground">
                             {subItem.title}
@@ -200,5 +207,4 @@ function Header1() {
     </header>
   );
 }
-
 export { Header1 };
