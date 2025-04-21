@@ -166,7 +166,7 @@ function Header1() {
           </Button>
           {isOpen && (
             <div className="absolute top-20 border-t flex p-2 flex-col w-full right-0 bg-background shadow-lg py-4 container gap-8">
-              {navigationItems.map((item, index) => (
+              {navigationItems.map((item) => (
                 <div key={item.title} >
                   <div className="flex flex-col gap-2">
                     {item.href ? (
