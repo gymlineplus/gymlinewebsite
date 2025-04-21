@@ -5,11 +5,23 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import Image from "next/image";
 
-// Function to render image logos from public directory
-const ImageLogo = ({ src, alt, ...props }) => (
-  <img src={src} alt={alt} {...props} style={{ width: "100%", height: "auto" }} />
+// Type definition for ImageLogo component
+type ImageLogoProps = {
+  src: string;
+  alt: string;
+};
+
+const ImageLogo = ({ src, alt }: ImageLogoProps) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={200}  // You can adjust width as per your requirement
+    height={100} // Adjust height similarly
+    style={{ width: "100%", height: "auto", objectFit: "contain" }}
+  />
 );
 
+// Array of logos with corresponding ImageLogo components
 const allLogos = [
   { name: "Gold's Gym", id: 1, img: () => <ImageLogo src="/gold.svg" alt="Gold's Gym Logo" /> },
   { name: "Kenzo", id: 2, img: () => <ImageLogo src="/kenzo-fitness logo.png" alt="Kenzo Logo" /> },
@@ -17,16 +29,7 @@ const allLogos = [
   { name: "Talso", id: 4, img: () => <ImageLogo src="/taiso-logo.png" alt="Talso Logo" /> },
   { name: "Anytime Fitness", id: 5, img: () => <ImageLogo src="/af.png" alt="Anytime Fitness Logo" /> },
   { name: "Indofit", id: 6, img: () => <ImageLogo src="/indofit-logos.jpg" alt="Indofit Logo" /> },
-  // Fixed the syntax error: Removed "Image" and added a proper object
   { name: "ABS Fitness", id: 7, img: () => <ImageLogo src="/abs-fitness.png" alt="ABS Fitness Logo" /> },
-  // Optionally keep or remove remaining logos
-  // { name: "Vercel", id: 8, img: VercelIcon },
-  // { name: "Lowes", id: 9, img: LowesIcon },
-  // { name: "Ally", id: 10, img: AllyLogo },
-  // { name: "Pierre", id: 11, img: PierreIcon },
-  // { name: "BMW", id: 12, img: BMWIcon },
-  // { name: "Claude", id: 13, img: ClaudeAIIcon },
-  // { name: "Nextjs", id: 14, img: NextjsIcon },
 ];
 
 export default function LogoCarouselDemo() {
@@ -42,7 +45,7 @@ export default function LogoCarouselDemo() {
           </GradientHeading>
         </div>
 
-        <LogoCarousel columnCount={3} logos={allLogos} /> 
+        <LogoCarousel columnCount={3} logos={allLogos} />
       </div>
     </div>
   );

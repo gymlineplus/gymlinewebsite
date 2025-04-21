@@ -1,7 +1,6 @@
 import * as React from "react"
 import { motion, PanInfo } from "framer-motion"
 import { cn } from "@/lib/utils"
-import Image from "next/image"
 
 interface Testimonial {
   id: number | string

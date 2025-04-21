@@ -1,5 +1,4 @@
 import Hero from "../ui/Hero";
-// import LogoCarouselDemo from "@/ui/Logo-carousel";
 import Navbar from "@/ui/Navbar";
 import Projects from "@/ui/Projects";
 import CompanyState from "@/ui/CompanyState";
@@ -15,8 +14,6 @@ export default function Home() {
       <Logos3 />
       <CompanyState />
       <Projects />
-      {/* <LogoCarouselDemo /> */}
-      
       <Testimonial />
       <Contact />
     </div>
