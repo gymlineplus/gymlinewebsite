@@ -60,13 +60,15 @@ function StatCard({ value, title, description }: StatCardProps) {
       observer.observe(cardRef.current)
     }
 
+    const currentCardRef = cardRef.current
+
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current)
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef)
       }
     }
-  }, [])
-
+  }, []);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

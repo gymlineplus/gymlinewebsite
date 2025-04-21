@@ -1,6 +1,7 @@
 import * as React from "react"
 import { motion, PanInfo } from "framer-motion"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 interface Testimonial {
   id: number | string
@@ -105,11 +106,13 @@ const TestimonialCarousel = React.forwardRef<
                 )}
 
                 <div className="p-6 flex flex-col items-center gap-4">
-                  <img
+                  <Image
+                    width={64}
+                    height={64}
                     src={"/placeholder.jpg"}
                     alt={testimonial.name}
                     className="w-16 h-16 rounded-full object-cover"
-                  />
+                    />
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-foreground">
                     {testimonial.name}
                   </h3>

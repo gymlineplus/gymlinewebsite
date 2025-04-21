@@ -2,19 +2,19 @@
 
 import { Button } from "@/components/ui/button";
 import {
+  NavigationMenuLink,
+  NavigationMenuItem,
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
+    NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function Header1() {
+function Header1() {  
   const navigationItems = [
     {
       title: "Home",
@@ -35,8 +35,7 @@ function Header1() {
         },
         {
           title: "Srength Plate Loaded",
-          href: "/strength-plate-loaded",
-        }
+          href: "/strength-plate-loaded",},
         ,
         {
           title: "Benches and racks",
@@ -89,15 +88,15 @@ function Header1() {
             <NavigationMenuList className="flex justify-start gap-4 flex-row">
               {navigationItems.map((item) => (
                 <NavigationMenuItem key={item.title}>
-                  {item.href ? (
+                   {item.href ? (
+                    <NavigationMenuLink asChild>
                       <Link href={item.href}>
-                        <Button variant="ghost">
-                          {item.title}
-                        </Button>
+                        <Button variant="ghost">{item.title}</Button>
                       </Link>
+                    </NavigationMenuLink>
                   ) : (
-                    <>
-                      <NavigationMenuTrigger className="font-medium text-sm">
+                    < >
+                       <NavigationMenuTrigger className="font-medium text-sm">
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="!w-[450px] p-4">
@@ -126,9 +125,10 @@ function Header1() {
                             ))}
                           </div>
                         </div>
+
                       </NavigationMenuContent>
                     </>
-                  )}
+                  )}                
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -167,7 +167,7 @@ function Header1() {
           {isOpen && (
             <div className="absolute top-20 border-t flex p-2 flex-col w-full right-0 bg-background shadow-lg py-4 container gap-8">
               {navigationItems.map((item, index) => (
-                <div key={item.title}>
+                <div key={item.title} >
                   <div className="flex flex-col gap-2">
                     {item.href ? (
                       <Link
@@ -180,18 +180,16 @@ function Header1() {
                       <p className="text-lg">{item.title}</p>
                     )}
                     {item.items &&
-                      item.items.map((subItem, index) => (
+                      item.items.map((subItem) => (
                         <Link
                           key={subItem.title}
                           href={subItem.href}
                           className="flex justify-between items-center"
-                          onClick={
-                            () => {
-                              setOpen(!isOpen)
-                            }
-                          }
-                        >
-                          <span className="text-muted-foreground">
+                          onClick={() => {
+                            setOpen(!isOpen);
+                          }}
+                        >                        
+                         <span className="text-muted-foreground">
                             {subItem.title}
                           </span>
                           <MoveRight className="w-4 h-4 stroke-1" />
