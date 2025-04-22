@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/ui/Navbar";
+import Navbar from "@/ui/Navbar"
 import FooterSection from "@/ui/FooterSection";
 
+import React from "react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-h-100 overflow-y-auto
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-auto
   [&::-webkit-scrollbar]:w-2
   [&::-webkit-scrollbar-track]:rounded-full
   [&::-webkit-scrollbar-track]:bg-gray-500
@@ -37,7 +38,8 @@ export default function RootLayout({
   dark:[&::-webkit-scrollbar-track]:bg-neutral-700
   dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500`}
       >
-        <Navbar />
+       
+      <Navbar/>
         {children}
         <FooterSection />
       </body>
